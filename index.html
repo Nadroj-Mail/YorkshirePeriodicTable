@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Yorkshire Table</title>
     <link rel="stylesheet" href="Style.css">
 </head>
@@ -52,6 +53,7 @@
                     <div class="yorkshire-mass">1.008</div>
                     <ul class="yorkshire-weight">
                         <li>1</li>
+                        <div class="yorkshire-meaning">The gratest place you will ever hear of and see. The greatest place to ever exist</div>
                     </ul>
                 </div>
             </div>
@@ -68,6 +70,7 @@
                     <div class="yorkshire-mass">1.008</div>
                     <ul class="yorkshire-weight">
                         <li>1</li>
+                        <div class="yorkshire-meaning">The gratest place you will ever hear of and see. The greatest place to ever exist</div>
                     </ul>
                 </div>
             </div>
@@ -79,11 +82,12 @@
                     <div class="yorkshire-number">2</div>
                     <div class="label">
                         <div class="symbol">Gf</div>
-                        <div class="name">Gaffe'</div>
+                        <div class="name">Gaffer'</div>
                     </div>
                     <div class="yorkshire-mass">4.0026</div>
                     <ul class="yorkshire-weight">
                         <li>2</li>
+                        <div class="yorkshire-meaning">The boss or person in charge — usually t’ one runnin site, workshop, or job. Often the senior bloke who calls shots and knows how things are done.</div>
                     </ul>
                 </div>
             </div>
@@ -100,6 +104,7 @@
                     <div class="yorkshire-mass">6.94</div>
                     <ul class="yorkshire-weight">
                         <li>3</li>
+                        <div class="yorkshire-meaning">Abriviation of Now then. To ask someone how it's going</div>
                     </ul>
                 </div>
             </div>
@@ -2467,5 +2472,23 @@
         </div>
     </div>
 </body>
+<script>
+document.querySelectorAll('.yorkshire-slot').forEach(slot => {
+    slot.addEventListener('click', () => {
+        const meaning = slot.querySelector('.yorkshire-meaning');
+        if (!meaning) return;
 
+        const rect = slot.getBoundingClientRect();
+        const mid = window.innerWidth / 2;
+
+        meaning.classList.remove('left', 'right');
+
+        if (rect.left > mid) {
+            meaning.classList.add('left');
+        } else {
+            meaning.classList.add('right');
+        }
+    });
+});
+</script>
 </html>
